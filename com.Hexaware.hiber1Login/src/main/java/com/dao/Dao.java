@@ -55,9 +55,9 @@ public class Dao implements DaoInter{
 			
 			for(Login i: li)
 			{
-				System.out.print("User_ID: "+i.getUserId());
-				System.out.print("User|Pass: "+i.getUserPass());
-				System.out.print("Email : "+i.getEmail());
+				System.out.print("User_ID : "+i.getUserId()+", ");
+				System.out.print("User_Password : "+i.getUserPass()+", ");
+				System.out.print("Email : "+i.getEmail()+" ");
 				System.out.println();
 			}			
 		}

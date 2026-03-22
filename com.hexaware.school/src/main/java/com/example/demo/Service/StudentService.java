@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.Dao.RepoStudent;
 import com.example.demo.Entity.Student;
+import com.example.demo.Exception.IdNotFoundException;
 
 @Service
 public class StudentService {
@@ -47,4 +48,9 @@ public class StudentService {
 			return "Name Updated";
 		}
 	}
+
+	public Student findId(int id) throws IdNotFoundException {
+	    return repoStudent.findById(id).orElseThrow(()-> new IdNotFoundException("Student with ID " + id + " not found"));
+	}
+
 }

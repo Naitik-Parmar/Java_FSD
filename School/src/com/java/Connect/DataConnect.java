@@ -16,8 +16,8 @@ public class DataConnect {
 			 
 			Class.forName("com.mysql.jdbc.Driver");  
 			con=DriverManager.getConnection(  
-	"jdbc:mysql://localhost:3306/school","root",""); 
-			System.out.println("done ");
+	"jdbc:mysql://localhost:3307/school?useSSL=false","root","tree"); 
+			System.out.println("Connected !!");
 			 
 	 }
 		 catch(Exception e)

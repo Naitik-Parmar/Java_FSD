@@ -26,7 +26,7 @@ public class Login {
 	}
 	@Override
 	public String toString() {
-		return "Login [userId=" + userId + ", userPass=" + userPass + ", email=" + email + "]";
+		return "Login [userId = " + userId + ", userPass = " + userPass + ", email = " + email + "]";
 	}
 	public String getUserId() {
 		return userId;

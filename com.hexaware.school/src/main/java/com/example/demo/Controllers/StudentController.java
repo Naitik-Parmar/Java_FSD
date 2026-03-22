@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entity.Student;
+import com.example.demo.Exception.IdNotFoundException;
 import com.example.demo.Service.StudentService;
+
+import jakarta.validation.Valid;
 
 @RestController
 public class StudentController {
@@ -21,7 +24,7 @@ public class StudentController {
 	StudentService studService;
 	
 	@PostMapping("/saveStudent")
-	public Student saveStudent(@RequestBody Student s) {
+	public Student saveStudent(@Valid @RequestBody Student s) {
 		Student s2 = studService.saveSt(s);
 		return s2;
 	}
@@ -43,4 +46,14 @@ public class StudentController {
 		String r = studService.updateNm(rn,nm);
 		return r;
 	}
+	
+	@GetMapping("/findbyId/{id}")
+	public Object find(@PathVariable int id) {
+	    try {
+	        return studService.findId(id);
+	    } catch (IdNotFoundException e) {
+	        return e.getMessage();
+	    }
+	}
+
 }
